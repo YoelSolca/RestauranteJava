@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="librerias">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Restaurante/librerias/itextpdf-5.5.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Restaurante/librerias/AbsoluteLayout.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Restaurante/librerias/mysql-connector-j-9.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
