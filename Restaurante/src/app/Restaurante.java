@@ -11,10 +11,10 @@ import java.sql.SQLException;
 public class Restaurante {
 
     public static void main(String[] args) {
-        /*
+
         Sistema iniciar = new Sistema();
         iniciar.setVisible(true);
-        */
+
 
         // Pruebas
         // Conexion a db
@@ -67,7 +67,7 @@ public class Restaurante {
             System.out.println("Error: El cliente con ID 1 aún existe.");
         }
 
-
+        /*
         // Cierre de la conexion a la db
         try {
             // Obtiene la instancia única y cierra la conexión cuando termines
@@ -77,5 +77,7 @@ public class Restaurante {
         } catch (SQLException e) {
             System.out.println("Error al cerrar la conexión: " + e.getMessage());
         }
+        */
+
     }
 }

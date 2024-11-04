@@ -1,12 +1,14 @@
 -- Seleccionar la base de datos
 USE sql10742365;
 
+/*
 -- Crear tabla salones
 CREATE TABLE IF NOT EXISTS salones (
   id INT PRIMARY KEY AUTO_INCREMENT,
   nombre VARCHAR(255) NOT NULL,
   mesas INT NOT NULL
 );
+*/
 
 -- Crear tabla pedidos
 CREATE TABLE IF NOT EXISTS pedidos (
@@ -31,6 +33,7 @@ CREATE TABLE IF NOT EXISTS detalle_pedidos (
   FOREIGN KEY (id_pedido) REFERENCES pedidos(id)
 );
 
+/*
 -- Crear tabla config
 CREATE TABLE IF NOT EXISTS config (
   id INT PRIMARY KEY AUTO_INCREMENT,
@@ -40,6 +43,7 @@ CREATE TABLE IF NOT EXISTS config (
   direccion VARCHAR(255) NOT NULL,
   mensaje TEXT NOT NULL
 );
+*/
 
 -- Crear tabla platos
 CREATE TABLE IF NOT EXISTS platos (
@@ -56,6 +60,7 @@ CREATE TABLE IF NOT EXISTS clientes (
   apellido VARCHAR(255) NOT NULL
 );
 
+/*
 -- Crear tabla usuarios
 CREATE TABLE IF NOT EXISTS usuarios (
   id INT PRIMARY KEY AUTO_INCREMENT,
@@ -64,7 +69,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
   pass VARCHAR(255) NOT NULL,
   rol VARCHAR(50) NOT NULL
 );
-
+*/
 -- Inserciones en las tablas
 
 -- Tabla salones
