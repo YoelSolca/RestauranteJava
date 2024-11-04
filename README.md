@@ -1,2 +1,2 @@
 # Restaurante Java
-Proyecto Restaurante hecho en Java
+Proyecto Gestion Restaurante hecho en Java
