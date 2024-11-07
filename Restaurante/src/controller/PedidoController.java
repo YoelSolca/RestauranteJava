@@ -24,7 +24,4 @@ public class PedidoController {
     public List<Pedidos> listarPedidos() {
         return pedidoDAO.listarPedidos();
     }
-
-
-
 }

@@ -6,7 +6,7 @@ import persistence.PlatosDAO;
 public class PlatoController {
     private PlatosDAO platoDAO;
 
-    public void platoController() {
+    public PlatoController(){
         this.platoDAO = new PlatosDAO();
     }
 

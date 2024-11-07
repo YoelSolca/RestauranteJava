@@ -1,7 +1,7 @@
 package app;
 
-import view.Sistema;
 import persistence.Conexion;
+import view.Tests.PrimeraVista;
 
 import java.sql.SQLException;
 
@@ -9,8 +9,13 @@ public class Restaurante {
 
     public static void main(String[] args) {
 
+        /*
         Sistema iniciar = new Sistema();
         iniciar.setVisible(true);
+         */
+
+        PrimeraVista sistema = new PrimeraVista();
+        sistema.setVisible(true);
 
         // Conexion a db
         try {

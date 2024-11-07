@@ -29,9 +29,7 @@ public class PedidosDAO {
     public int IdPedido() {
         int id = 0;
         String query = "SELECT MAX(id) FROM pedidos";
-
-        try (
-                ResultSet resultSet = ps.executeQuery()) {
+        try {
             ps = con.prepareStatement(query);
             rs = ps.executeQuery();
             if (rs.next()) {
