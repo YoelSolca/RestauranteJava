@@ -48,7 +48,5 @@ public class Platos {
         this.fecha = fecha;
     }
 
-    
-    
-    
+
 }

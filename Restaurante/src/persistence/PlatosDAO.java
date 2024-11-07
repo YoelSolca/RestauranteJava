@@ -15,7 +15,7 @@ public class PlatosDAO {
     ResultSet rs;
     int r;
 
-    public PlatosDAO(){
+    public PlatosDAO() {
         try {
             this.con = Conexion.getInstance().getConnection();
         } catch (SQLException e) {
@@ -23,14 +23,14 @@ public class PlatosDAO {
         }
     }
 
-    public int IdPlato(){
+    public int IdPlato() {
         int id = 0;
         String query = "SELECT MAX(id) FROM platos";
 
-        try (ResultSet resultSet = ps.executeQuery()){
+        try (ResultSet resultSet = ps.executeQuery()) {
             ps = con.prepareStatement(query);
             rs = ps.executeQuery();
-            if (rs.next()){
+            if (rs.next()) {
                 id = rs.getInt(1);
             }
         } catch (SQLException e) {

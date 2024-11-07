@@ -26,12 +26,12 @@ public class PedidosDAO {
     }
 
 
-    public int IdPedido(){
+    public int IdPedido() {
         int id = 0;
         String query = "SELECT MAX(id) FROM pedidos";
 
         try (
-            ResultSet resultSet = ps.executeQuery()) {
+                ResultSet resultSet = ps.executeQuery()) {
             ps = con.prepareStatement(query);
             rs = ps.executeQuery();
             if (rs.next()) {
@@ -44,7 +44,7 @@ public class PedidosDAO {
     }
 
 
-    public int RegistrarPedido(Pedidos ped){
+    public int RegistrarPedido(Pedidos ped) {
         String sql = "INSERT INTO pedidos (id_salon, num_mesa, total, usuario) VALUES (?,?,?,?)";
         try {
             ps = con.prepareStatement(sql);
@@ -55,7 +55,7 @@ public class PedidosDAO {
             ps.execute();
         } catch (SQLException e) {
             System.out.println(e.toString());
-        }finally{
+        } finally {
             try {
                 con.close();
             } catch (SQLException e) {
@@ -65,8 +65,8 @@ public class PedidosDAO {
         return r;
     }
 
-    public int RegistrarDetalle(DetallePedido det){
-       String sql = "INSERT INTO detalle_pedidos (nombre, precio, cantidad, comentario, id_pedido) VALUES (?,?,?,?,?)";
+    public int RegistrarDetalle(DetallePedido det) {
+        String sql = "INSERT INTO detalle_pedidos (nombre, precio, cantidad, comentario, id_pedido) VALUES (?,?,?,?,?)";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, det.getNombre());
@@ -81,70 +81,70 @@ public class PedidosDAO {
         return r;
     }
 
-    public List verPedidoDetalle(int id_pedido){
-       List<DetallePedido> Lista = new ArrayList();
-       String sql = "SELECT d.* FROM pedidos p INNER JOIN detalle_pedidos d ON p.id = d.id_pedido WHERE p.id = ?";
-       try {
-           ps = con.prepareStatement(sql);
-           ps.setInt(1, id_pedido);
-           rs = ps.executeQuery();
-           while (rs.next()) {
-               DetallePedido det = new DetallePedido();
-               det.setId(rs.getInt("id"));
-               det.setNombre(rs.getString("nombre"));
-               det.setPrecio(rs.getDouble("precio"));
-               det.setCantidad(rs.getInt("cantidad"));
-               det.setComentario(rs.getString("comentario"));
-               Lista.add(det);
-           }
-       } catch (SQLException e) {
-           System.out.println(e.toString());
-       }
-       return Lista;
-   }
+    public List verPedidoDetalle(int id_pedido) {
+        List<DetallePedido> Lista = new ArrayList();
+        String sql = "SELECT d.* FROM pedidos p INNER JOIN detalle_pedidos d ON p.id = d.id_pedido WHERE p.id = ?";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id_pedido);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                DetallePedido det = new DetallePedido();
+                det.setId(rs.getInt("id"));
+                det.setNombre(rs.getString("nombre"));
+                det.setPrecio(rs.getDouble("precio"));
+                det.setCantidad(rs.getInt("cantidad"));
+                det.setComentario(rs.getString("comentario"));
+                Lista.add(det);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+        return Lista;
+    }
 
-    public Pedidos verPedido(int id_pedido){
+    public Pedidos verPedido(int id_pedido) {
         Pedidos ped = new Pedidos();
-       String sql = "SELECT p.*, s.nombre FROM pedidos p INNER JOIN salones s ON p.id_salon = s.id WHERE p.id = ?";
-       try {
-           ps = con.prepareStatement(sql);
-           ps.setInt(1, id_pedido);
-           rs = ps.executeQuery();
+        String sql = "SELECT p.*, s.nombre FROM pedidos p INNER JOIN salones s ON p.id_salon = s.id WHERE p.id = ?";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id_pedido);
+            rs = ps.executeQuery();
             if (rs.next()) {
 
-               ped.setId(rs.getInt("id"));
-               ped.setFecha(rs.getString("fecha"));
-               ped.setSalon(rs.getString("nombre"));
-               ped.setNum_mesa(rs.getInt("num_mesa"));
-               ped.setTotal(rs.getDouble("total"));
-           }
-       } catch (SQLException e) {
-           System.out.println(e.toString());
-       }
-       return ped;
-   }
+                ped.setId(rs.getInt("id"));
+                ped.setFecha(rs.getString("fecha"));
+                ped.setSalon(rs.getString("nombre"));
+                ped.setNum_mesa(rs.getInt("num_mesa"));
+                ped.setTotal(rs.getDouble("total"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+        return ped;
+    }
 
-    public List listarPedidos(){
-       List<Pedidos> Lista = new ArrayList();
-       String sql = "SELECT p.*, s.nombre FROM pedidos p INNER JOIN salones s ON p.id_salon = s.id ORDER BY p.fecha DESC";
-       try {
-           ps = con.prepareStatement(sql);
-           rs = ps.executeQuery();
-           while (rs.next()) {
-               Pedidos ped = new Pedidos();
-               ped.setId(rs.getInt("id"));
-               ped.setSalon(rs.getString("nombre"));
-               ped.setNum_mesa(rs.getInt("num_mesa"));
-               ped.setFecha(rs.getString("fecha"));
-               ped.setTotal(rs.getDouble("total"));
-               ped.setUsuario(rs.getString("usuario"));
-               ped.setEstado(rs.getString("estado"));
-               Lista.add(ped);
-           }
-       } catch (SQLException e) {
-           System.out.println(e.toString());
-       }
-       return Lista;
-   }
+    public List listarPedidos() {
+        List<Pedidos> Lista = new ArrayList();
+        String sql = "SELECT p.*, s.nombre FROM pedidos p INNER JOIN salones s ON p.id_salon = s.id ORDER BY p.fecha DESC";
+        try {
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Pedidos ped = new Pedidos();
+                ped.setId(rs.getInt("id"));
+                ped.setSalon(rs.getString("nombre"));
+                ped.setNum_mesa(rs.getInt("num_mesa"));
+                ped.setFecha(rs.getString("fecha"));
+                ped.setTotal(rs.getDouble("total"));
+                ped.setUsuario(rs.getString("usuario"));
+                ped.setEstado(rs.getString("estado"));
+                Lista.add(ped);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+        return Lista;
+    }
 
 }

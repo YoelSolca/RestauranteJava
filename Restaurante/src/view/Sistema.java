@@ -1,7 +1,9 @@
 package view;
+
 import model.DetallePedido;
 import model.Pedidos;
 import persistence.PedidosDAO;
+
 import java.awt.Color;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -276,19 +278,19 @@ public final class Sistema extends javax.swing.JFrame {
         );
 
         tableMenu.setModel(new javax.swing.table.DefaultTableModel(
-                new Object [][] {
+                new Object[][]{
 
                 },
-                new String [] {
+                new String[]{
                         "", "Plato", "Cant", "Precio", "SubTotal", "Comentario"
                 }
         ) {
-            boolean[] canEdit = new boolean [] {
+            boolean[] canEdit = new boolean[]{
                     false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return canEdit[columnIndex];
             }
         });
         tableMenu.setRowHeight(23);
@@ -399,19 +401,19 @@ public final class Sistema extends javax.swing.JFrame {
         jPanel25.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 340, -1, -1));
 
         tableFinalizar.setModel(new javax.swing.table.DefaultTableModel(
-                new Object [][] {
+                new Object[][]{
 
                 },
-                new String [] {
+                new String[]{
                         "", "Plato", "Cant", "Precio", "SubTotal", "Comentario"
                 }
         ) {
-            boolean[] canEdit = new boolean [] {
+            boolean[] canEdit = new boolean[]{
                     false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return canEdit[columnIndex];
             }
         });
         tableFinalizar.setRowHeight(23);
@@ -457,19 +459,19 @@ public final class Sistema extends javax.swing.JFrame {
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TablePedidos.setModel(new javax.swing.table.DefaultTableModel(
-                new Object [][] {
+                new Object[][]{
 
                 },
-                new String [] {
+                new String[]{
                         "Id", "Sala", "Atendido", "N° Mesa", "Fecha", "Total", "Estado"
                 }
         ) {
-            boolean[] canEdit = new boolean [] {
+            boolean[] canEdit = new boolean[]{
                     false, false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return canEdit[columnIndex];
             }
         });
         TablePedidos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -552,7 +554,7 @@ public final class Sistema extends javax.swing.JFrame {
         verPedidoDetalle(id_pedido);
         jTabbedPane1.setSelectedIndex(4);
         btnFinalizar.setEnabled(false);
-        txtIdHistorialPedido.setText(""+id_pedido);
+        txtIdHistorialPedido.setText("" + id_pedido);
     }//GEN-LAST:event_TablePedidosMouseClicked
 
     private void tableSalaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableSalaMouseClicked
@@ -697,6 +699,7 @@ public final class Sistema extends javax.swing.JFrame {
             i = i - 1;
         }
     }
+
     private void colorHeader(JTable tabla) {
         tabla.setModel(modelo);
         JTableHeader header = tabla.getTableHeader();

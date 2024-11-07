@@ -1,6 +1,7 @@
 package persistence;
 
 import model.Cliente;
+
 import java.sql.*;
 
 public class ClienteDAO {

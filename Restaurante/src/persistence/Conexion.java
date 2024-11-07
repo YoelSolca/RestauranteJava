@@ -8,7 +8,6 @@ public class Conexion {
     private static Conexion instance;
     private Connection connection;
 
-    // Evitar instanciación directa
     private Conexion() throws SQLException {
         try {
             // Configuración para la base de datos en freesqldatabase.com
@@ -52,7 +51,7 @@ public class Conexion {
 
     public void printDatabaseName() {
         try {
-            String dbName = connection.getCatalog();  // obtiene el nombre de la base de datos
+            String dbName = connection.getCatalog();
             System.out.println("Base de datos actual: " + dbName);
         } catch (SQLException e) {
             System.out.println("Error al obtener el nombre de la base de datos: " + e.getMessage());
