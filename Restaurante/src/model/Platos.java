@@ -1,4 +1,4 @@
-package Modelo;
+package model;
 
 public class Platos {
     private int id;

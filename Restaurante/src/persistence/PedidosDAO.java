@@ -1,7 +1,7 @@
-package persistencia;
+package persistence;
 
-import Modelo.DetallePedido;
-import Modelo.Pedidos;
+import model.DetallePedido;
+import model.Pedidos;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,14 +10,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PedidosDao {
+public class PedidosDAO {
     private Connection con;
     PreparedStatement ps;
     ResultSet rs;
     int r;
 
 
-    public PedidosDao() {
+    public PedidosDAO() {
         try {
             this.con = Conexion.getInstance().getConnection();
         } catch (SQLException e) {

@@ -1,21 +1,21 @@
-package persistencia;
+package persistence;
 
 
-import Modelo.Platos;
+import model.Platos;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class PlatosDao {
+public class PlatosDAO {
 
     private Connection con;
     PreparedStatement ps;
     ResultSet rs;
     int r;
 
-    public PlatosDao(){
+    public PlatosDAO(){
         try {
             this.con = Conexion.getInstance().getConnection();
         } catch (SQLException e) {

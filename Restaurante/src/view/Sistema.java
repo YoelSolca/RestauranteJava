@@ -1,8 +1,7 @@
-
-package View;
-import Modelo.DetallePedido;
-import Modelo.Pedidos;
-import persistencia.PedidosDao;
+package view;
+import model.DetallePedido;
+import model.Pedidos;
+import persistence.PedidosDAO;
 import java.awt.Color;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -12,7 +11,7 @@ import javax.swing.table.JTableHeader;
 
 public final class Sistema extends javax.swing.JFrame {
     Pedidos ped = new Pedidos();
-    PedidosDao pedDao = new PedidosDao();
+    PedidosDAO pedDao = new PedidosDAO();
     DetallePedido detPedido = new DetallePedido();
     DefaultTableModel modelo = new DefaultTableModel();
     DefaultTableModel tmp = new DefaultTableModel();

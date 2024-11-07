@@ -1,11 +1,10 @@
 package app;
 
-import Modelo.Cliente;
-import View.Sistema;
-import persistencia.ClienteDao;
-import persistencia.Conexion;
+import model.Cliente;
+import view.Sistema;
+import persistence.ClienteDAO;
+import persistence.Conexion;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 
 public class Restaurante {
@@ -30,7 +29,7 @@ public class Restaurante {
         }
 
         // Crear y mostrar cliente
-        ClienteDao clienteDao = new ClienteDao();
+        ClienteDAO clienteDao = new ClienteDAO();
         Cliente clientePrueba = new Cliente(2, "Jose","tomas");
 
         clienteDao.agregarCliente(clientePrueba);

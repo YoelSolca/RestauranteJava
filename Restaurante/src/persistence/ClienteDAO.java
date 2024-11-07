@@ -1,14 +1,14 @@
-package persistencia;
+package persistence;
 
-import Modelo.Cliente;
+import model.Cliente;
 import java.sql.*;
 
-public class ClienteDao {
+public class ClienteDAO {
     private Connection con;
     PreparedStatement ps;
     int r = 0;
 
-    public ClienteDao() {
+    public ClienteDAO() {
         try {
             this.con = Conexion.getInstance().getConnection();
         } catch (SQLException e) {
