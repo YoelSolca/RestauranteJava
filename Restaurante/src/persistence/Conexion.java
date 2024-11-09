@@ -10,10 +10,10 @@ public class Conexion {
 
     private Conexion() throws SQLException {
         try {
-            // Configuración para la base de datos en freesqldatabase.com
-            String url = "jdbc:mysql://sql10.freesqldatabase.com:3306/sql10742365";
-            String user = "sql10742365";
-            String password = "HYwrLvPTtG";
+            // Configuración para la base de datos
+            String url = "jdbc:mysql://sql.freedb.tech:3306/freedb_restaurante_db";
+            String user = "freedb_restaurant";
+            String password = "*xFyWXV#6KHEJkX";
 
             this.connection = DriverManager.getConnection(url, user, password);
             System.out.println("Conexión establecida con éxito a la base de datos");
