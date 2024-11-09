@@ -744,7 +744,6 @@ public final class Sistema extends javax.swing.JFrame {
         ped = pedDao.verPedido(id_pedido);
         totalFinalizar.setText("" + ped.getTotal());
         txtFechaHora.setText("" + ped.getFecha());
-        txtSalaFinalizar.setText("" + ped.getSalon());
         txtNumMesaFinalizar.setText("" + ped.getNum_mesa());
         txtIdPedido.setText("" + ped.getId());
     }
