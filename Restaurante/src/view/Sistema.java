@@ -682,7 +682,6 @@ public final class Sistema extends javax.swing.JFrame {
         Object[] ob = new Object[7];
         for (int i = 0; i < Listar.size(); i++) {
             ob[0] = Listar.get(i).getId();
-            ob[1] = Listar.get(i).getSalon();
             ob[2] = Listar.get(i).getUsuario();
             ob[3] = Listar.get(i).getNum_mesa();
             ob[4] = Listar.get(i).getFecha();

@@ -43,10 +43,9 @@ public class PedidosDAO {
 
 
     public int RegistrarPedido(Pedidos ped) {
-        String sql = "INSERT INTO pedidos (id_salon, num_mesa, total, usuario) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO pedidos (num_mesa, total, usuario) VALUES (?,?,?)";
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, ped.getId_salon());
             ps.setInt(2, ped.getNum_mesa());
             ps.setDouble(3, ped.getTotal());
             ps.setString(4, ped.getUsuario());
@@ -112,7 +111,6 @@ public class PedidosDAO {
 
                 ped.setId(rs.getInt("id"));
                 ped.setFecha(rs.getString("fecha"));
-                ped.setSalon(rs.getString("nombre"));
                 ped.setNum_mesa(rs.getInt("num_mesa"));
                 ped.setTotal(rs.getDouble("total"));
             }
@@ -131,7 +129,6 @@ public class PedidosDAO {
             while (rs.next()) {
                 Pedidos ped = new Pedidos();
                 ped.setId(rs.getInt("id"));
-                ped.setSalon(rs.getString("nombre"));
                 ped.setNum_mesa(rs.getInt("num_mesa"));
                 ped.setFecha(rs.getString("fecha"));
                 ped.setTotal(rs.getDouble("total"));
