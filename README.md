@@ -1,11 +1,11 @@
 # ☕ Restaurante Java
 
-Este proyecto es una **aplicación de gestión de restaurantes** desarrollada en **Java** ☕, como parte de un trabajo práctico para la Universidad Siglo 21 en Argentina. La aplicación permite manejar la administración de pedidos y platos en un entorno de restaurante, gestionando detalles de pedidos, mesas, clientes, y platos a través de una interfaz gráfica.
+Este proyecto es una **aplicación de gestión de restaurantes** desarrollada en **Java** ☕, como parte de un trabajo práctico para la Universidad Siglo 21. La aplicación permite manejar la administración de pedidos y platos en un entorno de restaurante, gestionando detalles de pedidos, mesas, clientes, y platos a través de una interfaz gráfica.
 
 ## Características del Proyecto
 
-- **Gestión de Pedidos y Platos**: Control de pedidos y platos mediante controladores específicos (`PedidoController` y `PlatoController`), permitiendo agregar, actualizar y eliminar entradas.
-- **Persistencia de Datos**: Implementación de un sistema DAO (Data Access Object) utilizando **JDBC** y **SQLite** como base de datos. Las clases `ClienteDAO`, `PedidosDAO`, y `PlatosDAO` se encargan de la gestión de datos para cada entidad.
+- **Gestión de Clientes, Pedidos y Platos**: Controladores específicos (`ClienteController`,  `PedidoController` y `PlatoController`) para agregar, actualizar y eliminar entradas.
+- **Persistencia de Datos**: Implementación de un sistema DAO utilizando **JDBC** y **MySQL** como base de datos. Las clases `ClienteDAO`, `PedidosDAO`, y `PlatosDAO` se encargan de la gestión de datos para cada entidad.
 - **Arquitectura MVC**: El sistema sigue el patrón **Modelo-Vista-Controlador (MVC)**, donde:
   - El paquete `model` contiene las clases de entidades (como `Cliente`, `Pedidos`, `Platos`, y `DetallePedido`).
   - El paquete `controller` incluye los controladores que gestionan la lógica de negocio y manipulan los datos.
