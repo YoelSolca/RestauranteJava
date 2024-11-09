@@ -17,21 +17,22 @@ Este proyecto es una **aplicación de gestión de restaurantes** desarrollada en
 app
  └── Restaurante.java               # Clase main del sistema
 controller
- ├── PedidoController.java          # Controlador para pedidos
- └── PlatoController.java           # Controlador para platos
+ ├── ClienteController.java         # Controller para Cliente
+ ├── PedidoController.java          # Controller para pedidos
+ └── PlatoController.java           # Controller para platos
 model
  ├── Cliente.java                   # Clase de entidad Cliente
  ├── DetallePedido.java             # Clase de detalle de pedido
  ├── Pedidos.java                   # Clase de entidad Pedidos
- ├── Platos.java                    # Clase de entidad Platos
- └── persistence
-     ├── ClienteDAO.java            # DAO para Cliente
-     ├── PedidosDAO.java            # DAO para Pedidos
-     ├── PlatosDAO.java             # DAO para Platos
-     └── Conexion.java              # Gestión de la conexión a la base de datos
+ └── Platos.java                    # Clase de entidad Platos
+persistence
+  ├── ClienteDAO.java               # DAO para Cliente
+  ├── PedidosDAO.java               # DAO para Pedidos
+  ├── PlatosDAO.java                # DAO para Platos
+  └── Conexion.java                 # Gestión de la conexión a la base de datos
 view
  └── Sistema.java                   # Interfaz gráfica para interacción con el sistema
 ```
 
-## Diagrama UML
+## 📊 Diagrama UML
 ![Diagrama UML](Restaurante/img/diagramaUML.png)
