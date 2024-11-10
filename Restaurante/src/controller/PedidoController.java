@@ -1,27 +1,45 @@
 package controller;
 
 import model.DetallePedido;
-import model.Pedidos;
-import persistence.PedidosDAO;
-
+import model.Pedido;
 import java.util.List;
+import persistence.PedidoDAO;
 
 public class PedidoController {
-    private PedidosDAO pedidoDAO;
+    private PedidoDAO pedidoDAO;
 
     public PedidoController() {
-        this.pedidoDAO = new PedidosDAO();
+        this.pedidoDAO = new PedidoDAO();
     }
-    public void agregarPedido(Pedidos pedido, DetallePedido detallePedido) {
+    public void agregarPedido(Pedido pedido) {
         pedidoDAO.RegistrarPedido(pedido);
-        pedidoDAO.RegistrarDetalle(detallePedido);
+    }
+    
+    public int RegistrarDetalle(DetallePedido det){
+            return pedidoDAO.RegistrarDetalle(det);
+    }
+    
+    public List verPedidoDetalle(int id_pedido){
+        return pedidoDAO.verPedidoDetalle(id_pedido);
     }
 
-    public Pedidos obtenerPedido(int id) {
+    public Pedido verPedido(int id_pedido){
+        return pedidoDAO.verPedido(id_pedido);
+    }
+    
+    public Pedido obtenerPedido(int id) {
         return pedidoDAO.verPedido(id);
     }
 
-    public List<Pedidos> listarPedidos() {
+    public List<Pedido> listarPedidos() {
         return pedidoDAO.listarPedidos();
+    }
+
+    public int idPedido() {
+            return pedidoDAO.IdPedido();
+    }
+     
+    public boolean actualizarEstado(int id) {
+        return pedidoDAO.actualizarEstado(id);
     }
 }

@@ -1,31 +1,36 @@
-package controller;
 
+package controller;
 
 import model.Cliente;
 import persistence.ClienteDAO;
 
+
 public class ClienteController {
-    private ClienteDAO clienteDAO;
-
-
-    public ClienteController() {
-        this.clienteDAO = new ClienteDAO();
+     private ClienteDAO clienteDAO;
+        
+        
+     
+   public int IdPedido() {
+     return clienteDAO.IdPedido();
+   }
+         
+         
+     
+    public int agregarCliente(Cliente cliente) {
+           
+        return clienteDAO.agregarCliente(cliente);
     }
-
-    public void agregarCliente(Cliente cliente) {
-        clienteDAO.agregarCliente(cliente);
-    }
-
+      
+      
     public Cliente obtenerCliente(int id) {
-        return clienteDAO.obtenerCliente(id);
+        
+    return clienteDAO.obtenerCliente(id);
+    
     }
 
-    public void editarCliente(Cliente cliente) {
-        clienteDAO.modificarCliente(cliente);
+    
+   public int modificarCliente(Cliente cliente) {
+   
+       return clienteDAO.modificarCliente(cliente);
     }
-
-    public void eliminarCliente(int id) {
-        clienteDAO.eliminarCliente(id);
-    }
-
 }

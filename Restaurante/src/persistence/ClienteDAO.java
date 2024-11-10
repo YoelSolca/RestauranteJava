@@ -1,30 +1,52 @@
 package persistence;
 
 import model.Cliente;
-
+import persistence.Conexion;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ClienteDAO {
     private Connection con;
     PreparedStatement ps;
     int r = 0;
+    ResultSet rs;
 
     public ClienteDAO() {
         try {
             this.con = Conexion.getInstance().getConnection();
         } catch (SQLException e) {
             System.out.println("Error al obtener la conexión: " + e.getMessage());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    
+     public int IdPedido() {
+        int id = 0;
+        String query = "SELECT MAX(id) FROM pedidos";
+        try {
+            ps = con.prepareStatement(query);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                id = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+        return id;
+    }
+    
 
     public int agregarCliente(Cliente cliente) {
-        String sql = "INSERT INTO clientes (id, nombre, apellido) VALUES (?,?,?)";
+        String sql = "INSERT INTO cliente (nombre, apellido, id_pedido) VALUES (?,?,?)";
 
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, cliente.getId());
-            ps.setString(2, cliente.getNombre());
-            ps.setString(3, cliente.getApellido());
+            ps.setString(1, cliente.getNombre());
+            ps.setString(2, cliente.getApellido());       
+            ps.setInt(3, cliente.getIdPedido());
             r = ps.executeUpdate();
             System.out.println("Cliente agregado correctamente con ID: " + cliente.getId());
         } catch (SQLException e) {
@@ -42,7 +64,7 @@ public class ClienteDAO {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                cliente = new Cliente(rs.getInt("id"), rs.getString("nombre"), rs.getString("apellido"));
+                cliente = new Cliente(rs.getInt("id"), rs.getString("nombre"), rs.getString("apellido"), rs.getInt("id_cliente"));
             }
         } catch (SQLException e) {
             System.out.println("Error al obtener cliente: " + e.getMessage());

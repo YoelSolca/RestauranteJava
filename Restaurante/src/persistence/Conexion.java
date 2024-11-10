@@ -8,14 +8,12 @@ public class Conexion {
     private static Conexion instance;
     private Connection connection;
 
-    private Conexion() throws SQLException {
+    private Conexion() throws SQLException, ClassNotFoundException {
         try {
+            Class.forName("org.sqlite.JDBC");
             // Configuración para la base de datos
-            String url = "jdbc:mysql://sql.freedb.tech:3306/freedb_restaurante_db";
-            String user = "freedb_restaurant";
-            String password = "*xFyWXV#6KHEJkX";
-
-            this.connection = DriverManager.getConnection(url, user, password);
+            String url = "jdbc:sqlite:C:/Users/yoel.carrerassolc/Desktop/RestauranteJava/Restaurante/src/TPRestaurantBD.db";
+            this.connection = DriverManager.getConnection(url);
             System.out.println("Conexión establecida con éxito a la base de datos");
         } catch (SQLException e) {
             throw new SQLException("Error al conectarse a la BD: " + e.getMessage());
@@ -23,7 +21,7 @@ public class Conexion {
     }
 
     // Retorna la única instancia de la clase (patrón Singleton)
-    public static Conexion getInstance() throws SQLException {
+    public static Conexion getInstance() throws SQLException, ClassNotFoundException {
         if (instance == null) {
             instance = new Conexion();
         } else if (instance.getConnection().isClosed()) {
